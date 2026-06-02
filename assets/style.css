@@ -387,37 +387,56 @@ section h2 {
 .metodo-step {
   background: var(--carbon);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 2rem;
+  border-radius: 10px;
+  padding: 1.75rem 1.5rem 1.75rem;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  transition: border-color .2s, transform .2s;
+}
+.metodo-step:hover { border-color: var(--lime); transform: translateY(-3px); }
+.step-header {
+  display: flex;
   align-items: center;
   gap: .75rem;
-  position: relative;
 }
 .step-num {
-  font-size: 2.5rem;
+  font-size: 1.6rem;
   font-weight: 900;
   color: var(--lime);
   line-height: 1;
   border: 2px solid var(--lime);
-  width: 72px; height: 72px;
+  width: 56px; height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
+  flex-shrink: 0;
 }
-.step-arrow {
-  font-size: 1.2rem;
-  color: var(--lime);
-  opacity: .4;
+.step-num-final {
+  background: var(--lime);
+  color: var(--black);
 }
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--lime), transparent);
+  opacity: .35;
+}
+.step-body { display: flex; flex-direction: column; gap: .5rem; }
 .step-label {
   font-size: .72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: .14em;
   color: var(--aluminum);
 }
+.step-desc {
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.step-arrow { display: none; }
 
 /* ===== SETORES ===== */
 .setores-grid {
