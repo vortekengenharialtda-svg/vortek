@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vortek Engenharia — Eficiência · Tecnologia · Progresso</title>
+  <meta name="description" content="Engenharia inteligente com cálculo estrutural, simulação CFD/DEM, projetos de andaime, modelagem BIM e documentação técnica. Tucuruí – PA." />
+  <link rel="icon" type="image/png" href="assets/img/symbol.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="assets/img/logo.png" alt="Vortek Engenharia" />
+        <span>VORTEK <em>ENGENHARIA</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#setores">Setores</a></li>
+        <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
+      </ul>
+      <button class="nav-burger" aria-label="Menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+      <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+      <a href="#metodo" onclick="toggleMenu()">Método</a>
+      <a href="#setores" onclick="toggleMenu()">Setores</a>
+      <a href="#contato" onclick="toggleMenu()">Fale Conosco</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow hero-glow-cyan"></div>
+    <div class="hero-glow hero-glow-lime"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">// ENGENHARIA QUE PROVA RESULTADO</div>
+      <h1>
+        EFICIÊNCIA.<br />
+        TECNOLOGIA<br />
+        E <span class="accent-lime">PROGRESSO.</span>
+      </h1>
+      <p>Soluções inteligentes em engenharia para transformar desafios em <strong>resultados reais</strong>. Cálculo estrutural, modelagem, simulação e documentação técnica com base em dados.</p>
+      <div class="hero-tags">
+        <span><span class="dot dot-lime"></span> Foco</span>
+        <span><span class="dot dot-cyan"></span> Inovação</span>
+        <span><span class="dot dot-amber"></span> Evolução</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#servicos" class="btn btn-primary">Ver Serviços</a>
+        <a href="#contato" class="btn btn-outline">Fale Conosco</a>
+      </div>
+    </div>
+    <div class="hero-logo-wrap">
+      <img src="assets/img/logo.png" alt="" class="hero-logo-img" />
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="section-label">// 01 · SOBRE</div>
+      <h2>O QUE É A<br /><span class="accent-cyan">VORTEK?</span></h2>
+      <div class="sobre-grid">
+        <div class="sobre-text">
+          <p>A <strong>Vortek Engenharia</strong> é uma empresa especializada em engenharia de precisão, com foco em cálculo estrutural, simulação computacional e documentação técnica para indústrias que exigem rigor e confiabilidade.</p>
+          <p>Atuando em Tucuruí – PA, conectamos a excelência acadêmica com a demanda industrial real, entregando projetos com rastreabilidade, normas e resultado comprovado.</p>
+          <div class="sobre-diferenciais">
+            <div class="diferencial"><span class="check">✓</span> Engenharia baseada em dados</div>
+            <div class="diferencial"><span class="check">✓</span> Equipe especializada</div>
+            <div class="diferencial"><span class="check">✓</span> Tecnologia de ponta</div>
+            <div class="diferencial"><span class="check">✓</span> Foco em resultados reais</div>
+            <div class="diferencial"><span class="check">✓</span> Compromisso com a qualidade</div>
+            <div class="diferencial"><span class="check">✓</span> Decisão segura, menos retrabalho</div>
+          </div>
+        </div>
+        <div class="sobre-stats">
+          <div class="stat-card">
+            <div class="stat-num accent-cyan">6</div>
+            <div class="stat-label">Serviços Especializados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num accent-lime">7</div>
+            <div class="stat-label">Setores Atendidos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num accent-cyan">NBR</div>
+            <div class="stat-label">AISC · Normas Técnicas</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num accent-lime">ART</div>
+            <div class="stat-label">Inclusa nos Projetos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="section-dark">
+    <div class="container">
+      <div class="section-label">// 02 · NOSSOS SERVIÇOS</div>
+      <h2>ENGENHARIA COMPLETA.<br /><span class="accent-lime">SOLUÇÕES QUE SUSTENTAM PROJETOS.</span></h2>
+      <div class="servicos-grid">
+
+        <div class="servico-card">
+          <div class="servico-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="28" width="8" height="16" fill="currentColor" opacity=".4"/><rect x="16" y="20" width="8" height="24" fill="currentColor" opacity=".7"/><rect x="28" y="12" width="8" height="32" fill="currentColor"/><rect x="40" y="4" width="4" height="40" fill="currentColor" opacity=".6"/></svg>
+          </div>
+          <h3>Cálculo Estrutural</h3>
+          <p>Análise e dimensionamento de estruturas metálicas com verificação de cargas, vento, deslocamentos e critérios de norma NBR/AISC.</p>
+          <div class="servico-tag">Estruturas Metálicas</div>
+        </div>
+
+        <div class="servico-card accent-border-cyan">
+          <div class="servico-icon icon-cyan">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="4" width="4" height="40" stroke="currentColor" stroke-width="2"/><rect x="36" y="4" width="4" height="40" stroke="currentColor" stroke-width="2"/><rect x="12" y="10" width="24" height="4" fill="currentColor" opacity=".7"/><rect x="12" y="22" width="24" height="4" fill="currentColor" opacity=".7"/><rect x="12" y="34" width="24" height="4" fill="currentColor" opacity=".7"/></svg>
+          </div>
+          <h3>Projetos de Andaime</h3>
+          <p>Projetos de andaimes tubulares metálicos com memoriais, plantas e detalhamentos para montagem segura, com ART inclusa.</p>
+          <div class="servico-tag tag-cyan">Com ART Inclusa</div>
+        </div>
+
+        <div class="servico-card accent-border-lime">
+          <div class="servico-icon icon-lime">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="currentColor"/><path d="M24 4v8M24 36v8M4 24h8M36 24h8" stroke="currentColor" stroke-width="2"/><path d="M10 10l6 6M32 32l6 6M10 38l6-6M32 16l6-6" stroke="currentColor" stroke-width="1.5" opacity=".6"/></svg>
+          </div>
+          <h3>Modelagem BIM / DEM</h3>
+          <p>Modelagem 3D de edificações e simulação DEM de escoamento de granulares, chutes e defletores para otimização industrial.</p>
+          <div class="servico-tag tag-lime">3D · Simulação</div>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon icon-cyan">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M4 24 Q12 10 24 24 Q36 38 44 24" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M4 18 Q12 4 24 18 Q36 32 44 18" stroke="currentColor" stroke-width="1.5" fill="none" opacity=".5"/><path d="M4 30 Q12 16 24 30 Q36 44 44 30" stroke="currentColor" stroke-width="1.5" fill="none" opacity=".5"/></svg>
+          </div>
+          <h3>Simulações CFD</h3>
+          <p>Análises de dinâmica dos fluidos: ventilação, conforto térmico, pressão, perda de carga e escoamento em tubulações e dutos.</p>
+          <div class="servico-tag">Fluidodinâmica</div>
+        </div>
+
+        <div class="servico-card accent-border-lime">
+          <div class="servico-icon icon-lime">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M6 36L18 20l8 10 8-16 8 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="42" cy="18" r="3" fill="currentColor"/></svg>
+          </div>
+          <h3>Análises Avançadas</h3>
+          <p>Estudos lineares e não lineares, estabilidade, vibrações, fadiga e otimizações personalizadas. Resultados com rastreabilidade.</p>
+          <div class="servico-tag tag-lime">Linear · Não-linear</div>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="6" width="28" height="36" rx="3" stroke="currentColor" stroke-width="2"/><path d="M16 16h16M16 22h16M16 28h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="36" cy="36" r="6" fill="var(--carbon-2)" stroke="currentColor" stroke-width="1.5"/><path d="M34 36l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Documentação Técnica</h3>
+          <p>Memoriais de cálculo, relatórios, laudos, ART e documentos completos para aprovação. Do conceito à entrega com precisão.</p>
+          <div class="servico-tag">Memorial · Laudo · ART</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section id="metodo">
+    <div class="container">
+      <div class="section-label">// 03 · MÉTODO DE TRABALHO</div>
+      <h2>DO CONCEITO À EXECUÇÃO.<br /><span class="accent-lime">PRECISÃO EM CADA ETAPA.</span></h2>
+      <div class="metodo-grid">
+        <div class="metodo-step">
+          <div class="step-num">01</div>
+          <div class="step-arrow">→</div>
+          <div class="step-label">LEVANTAMENTO</div>
+        </div>
+        <div class="metodo-step">
+          <div class="step-num">02</div>
+          <div class="step-arrow">→</div>
+          <div class="step-label">MODELAGEM</div>
+        </div>
+        <div class="metodo-step">
+          <div class="step-num">03</div>
+          <div class="step-arrow last-row">→</div>
+          <div class="step-label">ANÁLISE</div>
+        </div>
+        <div class="metodo-step">
+          <div class="step-num">04</div>
+          <div class="step-arrow">→</div>
+          <div class="step-label">DETALHAMENTO</div>
+        </div>
+        <div class="metodo-step">
+          <div class="step-num">05</div>
+          <div class="step-arrow">→</div>
+          <div class="step-label">EXECUÇÃO</div>
+        </div>
+        <div class="metodo-step">
+          <div class="step-num">06</div>
+          <div class="step-arrow" style="opacity:0">→</div>
+          <div class="step-label">ACOMPANHAMENTO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SETORES -->
+  <section id="setores" class="section-dark">
+    <div class="container">
+      <div class="section-label">// 04 · ATUAMOS EM DIVERSOS SETORES</div>
+      <h2>ONDE A <span class="accent-cyan">VORTEK</span> ATUA</h2>
+      <div class="setores-grid">
+        <div class="setor-item">
+          <div class="setor-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="28" width="12" height="16" stroke="currentColor" stroke-width="2"/><rect x="18" y="20" width="12" height="24" stroke="currentColor" stroke-width="2"/><rect x="32" y="14" width="12" height="30" stroke="currentColor" stroke-width="2"/><path d="M2 44h44" stroke="currentColor" stroke-width="2"/><path d="M20 8l4-6 4 6" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <span>Indústria</span>
+        </div>
+        <div class="setor-item">
+          <div class="setor-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M4 44h40M8 44V24l16-16 16 16v20" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="19" y="30" width="10" height="14" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <span>Construção Civil</span>
+        </div>
+        <div class="setor-item">
+          <div class="setor-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M4 28h40M12 28V18M24 28V14M36 28V18" stroke="currentColor" stroke-width="2"/><path d="M8 18h8M20 14h8M32 18h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M2 44h44M6 36h36" stroke="currentColor" stroke-width="1.5" opacity=".5"/></svg>
+          </div>
+          <span>Infraestrutura</span>
+        </div>
+        <div class="setor-item">
+          <div class="setor-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4l6 14h14l-11 8 4 14-13-9-13 9 4-14L4 18h14z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <span>Energia</span>
+        </div>
+        <div class="setor-item">
+          <div class="setor-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M16 44V28a8 8 0 0116 0v16" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="18" r="6" stroke="currentColor" stroke-width="2"/><path d="M10 44h28" stroke="currentColor" stroke-width="2"/><path d="M24 4v8" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <span>Óleo & Gás</span>
+        </div>
+        <div class="setor-item">
+          <div class="setor-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 20c0-8.837 7.163-16 16-16s16 7.163 16 16c0 6-3 11-8 14H16c-5-3-8-8-8-14z" stroke="currentColor" stroke-width="2"/><path d="M16 34v10M32 34v10M12 44h24" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <span>Saneamento</span>
+        </div>
+        <div class="setor-item">
+          <div class="setor-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M6 40l8-16 6 8 8-20 6 12 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="38" r="3" fill="currentColor" opacity=".6"/></svg>
+          </div>
+          <span>Mineração</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-glow"></div>
+        <h2>VAMOS CONSTRUIR<br /><span class="accent-lime">O FUTURO JUNTOS?</span></h2>
+        <p>Fale com quem entende de engenharia e entrega resultados.</p>
+        <a href="#contato" class="btn btn-primary btn-lg">Solicitar Orçamento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section-dark">
+    <div class="container">
+      <div class="section-label">// 05 · CONTATO</div>
+      <h2>FALE COM A <span class="accent-cyan">VORTEK</span></h2>
+      <div class="contato-grid">
+        <div class="contato-info">
+          <div class="contato-item">
+            <div class="contato-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/><path d="m22 6-10 7L2 6" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <div>
+              <div class="contato-label">E-MAIL</div>
+              <a href="mailto:vortek.engenharia.ltda@gmail.com">vortek.engenharia.ltda@gmail.com</a>
+            </div>
+          </div>
+          <div class="contato-item">
+            <div class="contato-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.74a16 16 0 0 0 5.36 5.36l1.1-1.1a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <div>
+              <div class="contato-label">WHATSAPP / TELEFONE</div>
+              <a href="https://wa.me/5594981272357" target="_blank">(94) 98127-2357</a>
+              <span class="contato-sep"> · </span>
+              <a href="https://wa.me/5594984199315" target="_blank">(94) 98419-9315</a>
+              <span class="contato-sep"> · </span>
+              <a href="https://wa.me/5594981222442" target="_blank">(94) 98122-2442</a>
+            </div>
+          </div>
+          <div class="contato-item">
+            <div class="contato-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <div>
+              <div class="contato-label">LOCALIZAÇÃO</div>
+              <span>Tucuruí – PA, Brasil</span>
+            </div>
+          </div>
+          <a href="https://wa.me/5594981272357?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20da%20Vortek%20Engenharia." target="_blank" class="btn btn-primary" style="margin-top:2rem">
+            Solicitar Orçamento via WhatsApp
+          </a>
+        </div>
+        <div class="contato-card">
+          <div class="contato-card-title">ENGENHARIA INTELIGENTE.</div>
+          <div class="contato-card-sub accent-lime">RESULTADOS REAIS.</div>
+          <img src="assets/img/logo.png" alt="Vortek" class="contato-logo" />
+          <div class="contato-tags">
+            <span>Indústria</span>
+            <span>Construção Civil</span>
+            <span>Infraestrutura</span>
+            <span>Energia</span>
+            <span>Óleo & Gás</span>
+            <span>Saneamento</span>
+            <span>Mineração</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/img/logo.png" alt="Vortek" class="footer-logo" />
+          <div>
+            <div class="footer-name">VORTEK ENGENHARIA</div>
+            <div class="footer-tagline">Eficiência · Tecnologia · Progresso</div>
+          </div>
+        </div>
+        <nav class="footer-nav">
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#metodo">Método</a>
+          <a href="#setores">Setores</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Vortek Engenharia LTDA · Tucuruí – PA</span>
+        <span class="footer-slogan accent-lime">FORJAMOS SOLUÇÕES. ENTREGAMOS PRECISÃO.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
