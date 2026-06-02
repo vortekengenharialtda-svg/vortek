@@ -1,20 +1,20 @@
 /* ===== TOKENS ===== */
 :root {
-  --black:    #030405;
-  --carbon:   #070A0D;
-  --carbon-2: #0D1217;
-  --graphite: #111820;
-  --steel:    #7C8795;
-  --aluminum: #DDE4EA;
-  --white:    #F6F8FA;
-  --muted:    #A9B4C2;
-  --cyan:     #00AEEB;
-  --cyan-2:   #00D5FF;
-  --lime:     #A6E600;
-  --lime-2:   #C7FF2E;
-  --amber:    #FFB84D;
-  --grid:     rgba(246,248,250,.06);
-  --line:     rgba(246,248,250,.12);
+  --black:    #FFFFFF;
+  --carbon:   #F4F6F8;
+  --carbon-2: #EAECEF;
+  --graphite: #E0E4E8;
+  --steel:    #556070;
+  --aluminum: #2C3545;
+  --white:    #0D1520;
+  --muted:    #4A5568;
+  --cyan:     #0088BB;
+  --cyan-2:   #00AEEB;
+  --lime:     #6AAF00;
+  --lime-2:   #A6E600;
+  --amber:    #D4890A;
+  --grid:     rgba(13,21,32,.06);
+  --line:     rgba(13,21,32,.12);
   --nav-h:    68px;
 }
 
@@ -50,7 +50,7 @@ img { max-width: 100%; display: block; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(3,4,5,.85);
+  background: rgba(255,255,255,.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
   transition: background .3s;

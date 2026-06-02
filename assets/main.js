@@ -2,8 +2,8 @@
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.style.background = window.scrollY > 40
-    ? 'rgba(3,4,5,.97)'
-    : 'rgba(3,4,5,.85)';
+    ? 'rgba(255,255,255,.99)'
+    : 'rgba(255,255,255,.92)';
 });
 
 // Mobile menu
