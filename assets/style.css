@@ -282,9 +282,9 @@ img { max-width: 100%; display: block; }
 }
 .hero-logo-wrap {
   position: absolute;
-  right: -40px;
+  right: 24px;
   top: 50%;
-  transform: translateY(-62%);
+  transform: translateY(-55%);
   width: 360px;
   opacity: .15;
   pointer-events: none;
