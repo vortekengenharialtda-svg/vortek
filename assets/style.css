@@ -281,15 +281,7 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 .hero-logo-wrap {
-  position: absolute;
-  right: -60px;
-  bottom: 3rem;
-  top: auto;
-  transform: none;
-  width: 340px;
-  opacity: .14;
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
 .hero-logo-img { width: 100%; }
 
