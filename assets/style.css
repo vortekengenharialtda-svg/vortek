@@ -281,7 +281,14 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 .hero-logo-wrap {
-  display: none;
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-62%);
+  width: 360px;
+  opacity: .15;
+  pointer-events: none;
+  z-index: 1;
 }
 .hero-logo-img { width: 100%; }
 
