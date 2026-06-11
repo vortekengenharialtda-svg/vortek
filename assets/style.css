@@ -787,6 +787,16 @@ footer {
   font-size: .7rem;
 }
 
+/* ===== CFD CANVAS ===== */
+#cfd-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* ===== SCROLL ANIMATE (progressive enhancement — state managed by main.js) ===== */
 
 /* ===== RESPONSIVE ===== */

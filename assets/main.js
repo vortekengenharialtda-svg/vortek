@@ -30,6 +30,93 @@ if (!prefersReduced) {
   document.getElementById('hero').classList.add('hero-ready');
 }
 
+// CFD Particle Field
+function initCFD() {
+  const canvas = document.getElementById('cfd-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const N = 150;
+  const cursor = { x: -999, y: -999 };
+  let W = 0, H = 0, t = 0, animId = null;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  new ResizeObserver(resize).observe(canvas);
+
+  const hero = document.getElementById('hero');
+  hero.addEventListener('mousemove', e => {
+    const r = canvas.getBoundingClientRect();
+    cursor.x = e.clientX - r.left;
+    cursor.y = e.clientY - r.top;
+  }, { passive: true });
+  hero.addEventListener('mouseleave', () => { cursor.x = -999; cursor.y = -999; });
+
+  function field(x, y) {
+    const nx = x / W, ny = y / H;
+    return 0.18
+      + Math.sin(ny * 3.6 + t * 0.14) * 0.85
+      + Math.cos(nx * 2.9 + t * 0.11) * 0.65
+      + Math.sin((nx - ny) * 2.1 + t * 0.07) * 0.4;
+  }
+
+  const particles = Array.from({ length: N }, (_, i) => ({
+    x: Math.random() * (W || 800),
+    y: Math.random() * (H || 600),
+    speed: 0.7 + Math.random() * 0.9,
+    cyan: i % 3 !== 2,
+  }));
+
+  function step() {
+    // Fade-trail via semi-transparent white fill (no clearRect — accumulation is the effect)
+    ctx.fillStyle = 'rgba(255,255,255,0.065)';
+    ctx.fillRect(0, 0, W, H);
+    t += 0.007;
+
+    for (const p of particles) {
+      const angle = field(p.x, p.y);
+      let vx = Math.cos(angle) * p.speed;
+      let vy = Math.sin(angle) * p.speed;
+
+      // cursor deflection
+      const dx = p.x - cursor.x, dy = p.y - cursor.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < 115 && d > 0.5) {
+        const f = (115 - d) / 115;
+        vx += (dx / d) * f * 2.8;
+        vy += (dy / d) * f * 2.8;
+      }
+
+      p.x += vx;
+      p.y += vy;
+
+      // wrap edges
+      if (p.x < 0) p.x = W;
+      else if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      else if (p.y > H) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.4, 0, 6.283);
+      ctx.fillStyle = p.cyan ? 'rgba(0,136,187,0.72)' : 'rgba(106,175,0,0.68)';
+      ctx.fill();
+    }
+    animId = requestAnimationFrame(step);
+  }
+
+  // Pause when hero leaves viewport (perf)
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { if (!animId) animId = requestAnimationFrame(step); }
+    else { cancelAnimationFrame(animId); animId = null; }
+  }, { threshold: 0 }).observe(hero);
+
+  animId = requestAnimationFrame(step);
+}
+
+if (!prefersReduced) initCFD();
+
 // Método step stagger indices
 document.querySelectorAll('.metodo-step').forEach((el, i) => {
   el.style.setProperty('--i', i);
