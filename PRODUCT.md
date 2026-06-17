@@ -6,31 +6,31 @@ brand
 
 ## Users
 
-Gerentes de projetos, engenheiros e responsáveis técnicos de empresas industriais, construtoras e empresas de infraestrutura na região do Pará (Tucuruí e entorno). Contexto de uso: avaliando fornecedores de engenharia especializada, comparando credenciais técnicas, buscando orçamento. Decisão de compra B2B com critério técnico.
+Engenheiros, gerentes de projetos industriais e compradores de serviços de engenharia no Pará (Tucuruí e região). Contexto: buscando uma firma de engenharia confiável para cálculo estrutural, andaimes, CFD ou documentação técnica. Decisão B2B com peso técnico — o comprador precisa confiar antes de ligar.
 
 ## Product Purpose
 
-Site institucional da Vortek Engenharia LTDA — empresa de engenharia de precisão em Tucuruí-PA. Comunica serviços (cálculo estrutural, andaimes, BIM, CFD, DEM, documentação técnica), credenciais técnicas (NBR/AISC, ART inclusa) e gera leads via WhatsApp e e-mail. Sucesso = visitante que confia na competência técnica e entra em contato.
+Site institucional da Vortek Engenharia LTDA. Apresenta a empresa, seus serviços e método de trabalho para converter visitantes em clientes via WhatsApp/email. Sucesso = orçamento solicitado.
 
 ## Brand Personality
 
-Precisa. Tecnológica. Confiável.
-
-Voz: engenheiros que resolvem problemas reais com rigor técnico — sem promessas vazias, sem marketing inflado.
+Preciso · Técnico · Confiável. Tom direto e sem floreios — engenharia como ciência, não como marketing. A empresa prova resultado através de rigor técnico, não promessas.
 
 ## Anti-references
 
-- Sites genéricos de construtoras populares: clipart, cores primárias, visual amador
-- Qualquer coisa que pareça "feita em IA sem caráter próprio"
+- Construtora genérica: azul navy conservador, fotos de obra, estética anos 2000
+- Escritório de arquitetura: branco total, minimalismo vazio, sem conteúdo técnico
+- SaaS startup: cream/bege, cards idênticos, métricas heroicas, linguagem de produto
+- Governo/órgão público: pesado, institucional, sem personalidade visual
 
 ## Design Principles
 
-1. **Prova antes de afirma** — cada serviço tem especificação técnica concreta, não buzzwords
-2. **Precisão visual = precisão técnica** — o nível de detalhe do design reflete o rigor do serviço
-3. **Distinção regional** — Tucuruí, Pará, Amazônia industrial são identidade, não fraqueza
-4. **Confiança pelo conteúdo, não pelo visual** — credenciais (ART, NBR, AISC) falam mais que estética
-5. **Lead gerado é resultado** — todo CTA aponta para ação real (WhatsApp, e-mail)
+1. **Rigor como estética** — a precisão técnica se reflete no layout: alinhamento exato, espaçamentos deliberados, sem ruído visual
+2. **Dark-first com acento técnico** — o tema escuro remete a software de simulação (CAD/CFD), não a agência criativa
+3. **Mostrar, não proclamar** — substituir adjetivos por especificações (NBR, AISC, ART) e demonstrações visuais (partículas CFD)
+4. **Hierarquia clara** — o visitante entende o que a Vortek faz em 5 segundos sem rolar a página
+5. **Conversão direta** — cada seção leva ao próximo passo; o CTA WhatsApp não compete com conteúdo
 
 ## Accessibility & Inclusion
 
-WCAG AA obrigatório: contraste ≥ 4.5:1 para texto normal, ≥ 3:1 para texto grande. Navegação por teclado funcional. Alt text em todas as imagens. Sem animações que bloqueiem conteúdo.
+WCAG AA mínimo. Suporte a prefers-reduced-motion (animação CFD já desativada por media query). Contraste mínimo 4.5:1 em texto de corpo.
