@@ -85,6 +85,14 @@ function initCFDShader() {
       col=mix(col,vec3(.0,.533,.733),combined*.10+stream*combined*.04);
       col=mix(col,vec3(.416,.686,.0),max(0.,combined-.55)*.18);
       col=mix(col,vec3(.0,.533,.733),smoothstep(.28,0.,md*ar)*.12);
+      vec2 dir=normalize(curl+vec2(1e-4));
+      float lic=0.;
+      vec2 sp=q;
+      for(int i=0;i<8;i++){ sp+=dir*.035; lic+=fbm(sp*3.2+t*.06); }
+      lic/=8.;
+      float lines=smoothstep(.42,.5,fract(lic*9.))*smoothstep(.58,.5,fract(lic*9.));
+      float mouseBoost=smoothstep(.35,0.,md*ar);
+      col=mix(col,vec3(.0,.68,.93),lines*(.10+mouseBoost*.25));
       float fade=smoothstep(0.,.10,uv.x)*smoothstep(1.,.90,uv.x)
                 *smoothstep(0.,.06,uv.y)*smoothstep(1.,.94,uv.y);
       col=mix(vec3(1.),col,fade);
