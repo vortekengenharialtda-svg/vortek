@@ -295,15 +295,15 @@ console.log('%cEngenharia de precisão — Cálculo estrutural, CFD, BIM, Andaim
     },
     2: {
       extra: 'Modelo federado da instalação com simulação de escoamento de material granular em silos, chutes e transportadores.',
-      specs: ['Ferramentas: Revit, Rocky DEM, EDEM', 'Entregável: modelo 3D + relatório de escoamento', 'Aplicação: silos, chutes, correias'],
+      specs: ['Aplicação: silos, chutes, correias transportadoras', 'Entregável: modelo 3D + relatório de escoamento', 'Prazo conforme escopo do projeto'],
     },
     3: {
       extra: 'Simulação numérica de escoamento de ar ou fluido para prever perda de carga, ventilação e conforto térmico antes da execução.',
-      specs: ['Ferramentas: Ansys Fluent, OpenFOAM', 'Entregável: mapas de velocidade e pressão + relatório', 'Aplicação: dutos, galpões, ventilação industrial'],
+      specs: ['Aplicação: dutos, galpões, ventilação industrial', 'Entregável: mapas de velocidade e pressão + relatório', 'Prazo conforme escopo do projeto'],
     },
     4: {
       extra: 'Estudos que vão além da análise linear padrão: comportamento não linear, fadiga acumulada e resposta dinâmica sob vibração.',
-      specs: ['Tipos: não linear geométrico/material, fadiga (S-N), modal', 'Ferramenta: Ansys Mechanical', 'Entregável: relatório com rastreabilidade de hipóteses'],
+      specs: ['Tipos: não linear geométrico/material, fadiga (S-N), modal', 'Entregável: relatório com rastreabilidade de hipóteses', 'Prazo conforme escopo do projeto'],
     },
     5: {
       extra: 'Toda entrega técnica formatada para aprovação em órgão ou cliente, com revisão controlada e responsabilidade técnica assinada.',
