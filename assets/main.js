@@ -276,6 +276,108 @@ if (metodoSection) metodoObserver.observe(metodoSection);
 console.log('%c VORTEK ENGENHARIA ', 'background:#0088BB;color:#fff;font-size:13px;font-weight:700;padding:4px 10px;letter-spacing:2px;');
 console.log('%cEngenharia de precisão — Cálculo estrutural, CFD, BIM, Andaimes · Tucuruí, PA\n%cCurioso com o código? Contato: admvortek@gmail.com', 'color:#6AAF00;font-weight:600;font-size:11px;', 'color:#556070;font-size:11px;');
 
+// Serviços — card-to-dialog morph (Overdrive)
+(function () {
+  const dialog = document.getElementById('servicoDialog');
+  if (!dialog) return;
+  const panel   = dialog.querySelector('.servico-dialog-panel');
+  const cards   = document.querySelectorAll('.servico-card');
+  const VT_NAME = 'servico-morph';
+
+  const specData = {
+    0: {
+      extra: 'Verificação de esforços, flechas e estabilidade em perfis metálicos, com relatório de rastreabilidade das hipóteses de cálculo adotadas.',
+      specs: ['Normas: NBR 8800, NBR 6123, AISC 360', 'Entregável: memorial de cálculo + plantas de reforço', 'Prazo típico: 5 a 10 dias úteis'],
+    },
+    1: {
+      extra: 'Projeto completo de andaime tubular ou modular, dimensionado para a carga real de trabalho e ancorado à estrutura de suporte.',
+      specs: ['Normas: NR-18, NR-35, EN 12811', 'Entregável: plantas de montagem, memorial e ART', 'Prazo típico: 3 a 7 dias úteis'],
+    },
+    2: {
+      extra: 'Modelo federado da instalação com simulação de escoamento de material granular em silos, chutes e transportadores.',
+      specs: ['Ferramentas: Revit, Rocky DEM, EDEM', 'Entregável: modelo 3D + relatório de escoamento', 'Aplicação: silos, chutes, correias'],
+    },
+    3: {
+      extra: 'Simulação numérica de escoamento de ar ou fluido para prever perda de carga, ventilação e conforto térmico antes da execução.',
+      specs: ['Ferramentas: Ansys Fluent, OpenFOAM', 'Entregável: mapas de velocidade e pressão + relatório', 'Aplicação: dutos, galpões, ventilação industrial'],
+    },
+    4: {
+      extra: 'Estudos que vão além da análise linear padrão: comportamento não linear, fadiga acumulada e resposta dinâmica sob vibração.',
+      specs: ['Tipos: não linear geométrico/material, fadiga (S-N), modal', 'Ferramenta: Ansys Mechanical', 'Entregável: relatório com rastreabilidade de hipóteses'],
+    },
+    5: {
+      extra: 'Toda entrega técnica formatada para aprovação em órgão ou cliente, com revisão controlada e responsabilidade técnica assinada.',
+      specs: ['Entregável: memorial, laudo técnico e ART/RRT', 'Formato: revisão controlada, padrão ABNT', 'Prazo conforme escopo do projeto'],
+    },
+  };
+
+  function supportsVT() {
+    return typeof document.startViewTransition === 'function' && !prefersReduced;
+  }
+
+  function populate(card, idx) {
+    const data = specData[idx];
+    const accent = card.classList.contains('accent-border-cyan') ? 'cyan'
+                 : card.classList.contains('accent-border-lime') ? 'lime' : '';
+    panel.classList.remove('panel-cyan', 'panel-lime');
+    if (accent) panel.classList.add('panel-' + accent);
+
+    panel.querySelector('.dialog-icon').innerHTML = card.querySelector('.servico-icon').innerHTML;
+    panel.querySelector('.dialog-title').textContent = card.querySelector('h3').textContent;
+    panel.querySelector('.dialog-desc').textContent = card.querySelector('p').textContent + ' ' + data.extra;
+    panel.querySelector('.dialog-tag').innerHTML = card.querySelector('.servico-tag').outerHTML;
+    panel.querySelector('.dialog-specs').innerHTML = data.specs.map(s => `<li>${s}</li>`).join('');
+    dialog.dataset.idx = idx;
+  }
+
+  function openDetail(card) {
+    const idx = card.dataset.idx;
+    const run = () => {
+      card.style.viewTransitionName = '';
+      populate(card, idx);
+      panel.style.viewTransitionName = VT_NAME;
+      dialog.showModal();
+    };
+    if (supportsVT()) {
+      card.style.viewTransitionName = VT_NAME;
+      document.startViewTransition(run).finished.finally(() => {
+        card.style.viewTransitionName = '';
+      });
+    } else {
+      run();
+    }
+  }
+
+  function closeDetail() {
+    const idx = dialog.dataset.idx;
+    const activeCard = document.querySelector(`.servico-card[data-idx="${idx}"]`);
+    const run = () => {
+      panel.style.viewTransitionName = '';
+      dialog.close();
+      if (activeCard) activeCard.style.viewTransitionName = VT_NAME;
+    };
+    if (supportsVT()) {
+      document.startViewTransition(run).finished.finally(() => {
+        if (activeCard) activeCard.style.viewTransitionName = '';
+      });
+    } else {
+      run();
+    }
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => openDetail(card));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDetail(card); }
+    });
+  });
+
+  dialog.addEventListener('click', e => {
+    if (e.target === dialog || e.target.closest('[data-close]')) closeDetail();
+  });
+  dialog.addEventListener('cancel', e => { e.preventDefault(); closeDetail(); });
+})();
+
 // Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a, .nav-mobile a');

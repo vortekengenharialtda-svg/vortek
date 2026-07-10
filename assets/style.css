@@ -486,6 +486,114 @@ section h2 {
 .tag-cyan { background: rgba(0,174,235,.1); color: var(--cyan); border-color: rgba(0,174,235,.2); }
 .tag-lime { background: rgba(166,230,0,.1); color: var(--lime); border-color: rgba(166,230,0,.2); }
 
+.servico-card { cursor: pointer; }
+.servico-card:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.servico-more {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity .25s var(--ease-out-quart), transform .25s var(--ease-out-quart);
+}
+.servico-card:hover .servico-more,
+.servico-card:focus-visible .servico-more { opacity: 1; transform: translateX(0); }
+.servico-more .arrow { transition: transform .25s var(--ease-out-quart); }
+.servico-card:hover .servico-more .arrow { transform: translateX(3px); }
+
+/* ===== SERVIÇO — dialog morph (overdrive) ===== */
+.servico-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: min(92vw, 560px);
+  width: 100%;
+  margin: auto;
+  overflow: visible;
+}
+.servico-dialog::backdrop {
+  background: rgba(13,21,32,.5);
+  backdrop-filter: blur(3px);
+}
+@starting-style {
+  .servico-dialog[open] { opacity: 0; }
+  .servico-dialog[open]::backdrop { background: rgba(13,21,32,0); }
+}
+.servico-dialog[open] {
+  opacity: 1;
+  transition: opacity .28s var(--ease-out-quart), overlay .28s allow-discrete, display .28s allow-discrete;
+}
+.servico-dialog[open]::backdrop {
+  transition: background .28s var(--ease-out-quart);
+}
+.servico-dialog-panel {
+  background: var(--carbon-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 2.5rem;
+  position: relative;
+  view-transition-name: none;
+}
+.servico-dialog-panel.panel-cyan { border-color: rgba(0,174,235,.35); }
+.servico-dialog-panel.panel-lime { border-color: rgba(166,230,0,.35); }
+.dialog-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  width: 32px; height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--carbon);
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, transform .2s var(--ease-out-quart);
+}
+.dialog-close:hover { color: var(--white); border-color: var(--cyan); transform: rotate(90deg); }
+.dialog-icon { width: 48px; height: 48px; margin-bottom: 1.2rem; color: var(--steel); }
+.dialog-icon svg { width: 100%; height: 100%; }
+.panel-cyan .dialog-icon { color: var(--cyan); }
+.panel-lime .dialog-icon { color: var(--lime); }
+.dialog-title { font-size: 1.4rem; font-weight: 800; letter-spacing: .02em; margin-bottom: .9rem; }
+.dialog-desc { font-size: .92rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem; }
+.dialog-specs { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: .55rem; }
+.dialog-specs li {
+  font-size: .82rem;
+  color: var(--aluminum);
+  padding-left: 1.1rem;
+  position: relative;
+}
+.dialog-specs li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: .45em;
+  width: 6px; height: 6px;
+  background: var(--cyan);
+  border-radius: 1px;
+}
+.panel-lime .dialog-specs li::before { background: var(--lime); }
+.dialog-tag { margin-bottom: 1.75rem; }
+.dialog-cta { width: 100%; text-align: center; justify-content: center; }
+@media (max-width: 640px) {
+  .servico-dialog-panel { padding: 1.75rem; }
+}
+
+/* View Transitions — card-to-dialog morph */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(servico-morph) { animation-duration: .45s; animation-timing-function: var(--ease-out-quart); }
+  ::view-transition-old(servico-morph),
+  ::view-transition-new(servico-morph) { animation-duration: .32s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
 /* ===== MÉTODO ===== */
 #metodo { background: var(--graphite); }
 .metodo-grid {
