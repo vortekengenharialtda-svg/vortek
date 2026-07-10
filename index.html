@@ -458,9 +458,34 @@
               <span>Tucuruí – PA, Brasil</span>
             </div>
           </div>
-          <a href="https://wa.me/5594992745775?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20da%20Vortek%20Engenharia." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:2rem">
-            Solicitar Orçamento via WhatsApp
-          </a>
+          <form id="contatoForm" class="contato-form" novalidate>
+            <div class="form-field">
+              <label for="ctNome">Nome</label>
+              <input type="text" id="ctNome" name="nome" autocomplete="name" placeholder="Seu nome" required minlength="2" />
+              <span class="field-msg"></span>
+            </div>
+            <div class="form-field">
+              <label for="ctServico">Serviço de interesse</label>
+              <select id="ctServico" name="servico" required>
+                <option value="" disabled selected>Selecione um serviço</option>
+                <option>Cálculo Estrutural</option>
+                <option>Projetos de Andaime</option>
+                <option>Modelagem BIM / DEM</option>
+                <option>Simulações CFD</option>
+                <option>Análises Avançadas</option>
+                <option>Documentação Técnica</option>
+                <option>Outro</option>
+              </select>
+              <span class="field-msg"></span>
+            </div>
+            <div class="form-field">
+              <label for="ctMsg">Mensagem <span class="field-optional">(opcional)</span></label>
+              <textarea id="ctMsg" name="mensagem" rows="3" placeholder="Detalhes do projeto, prazo, localização..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" disabled>
+              <span class="submit-label">Solicitar Orçamento via WhatsApp</span>
+            </button>
+          </form>
         </div>
         <div class="contato-card">
           <div class="contato-card-title">ENGENHARIA INTELIGENTE.</div>

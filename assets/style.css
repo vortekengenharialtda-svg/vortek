@@ -932,6 +932,90 @@ section h2 {
 }
 .contato-item a:hover { color: var(--cyan); }
 .contato-sep { color: var(--steel); }
+.contato-form { margin-top: 1.5rem; }
+.form-field { margin-bottom: 1.3rem; position: relative; }
+.form-field label {
+  display: block;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: .5rem;
+}
+.field-optional { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--steel); opacity: .8; }
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  background: var(--carbon-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: .75rem .9rem;
+  font-family: inherit;
+  font-size: .88rem;
+  color: var(--white);
+  transition: border-color .2s var(--ease-out-quart), box-shadow .2s var(--ease-out-quart);
+}
+.form-field textarea { resize: vertical; min-height: 4.5rem; }
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(0,136,187,.14);
+}
+.form-field.is-valid input,
+.form-field.is-valid select {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 3px rgba(106,175,0,.1);
+}
+.form-field.is-invalid input,
+.form-field.is-invalid select {
+  border-color: #C0392B;
+  box-shadow: 0 0 0 3px rgba(192,57,43,.1);
+}
+.field-msg {
+  display: block;
+  font-size: .72rem;
+  min-height: 1.1em;
+  margin-top: .35rem;
+  color: #C0392B;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity .2s var(--ease-out-quart), transform .2s var(--ease-out-quart);
+}
+.form-field.is-invalid .field-msg { opacity: 1; transform: translateY(0); }
+.form-field.is-valid .field-msg { opacity: 0; }
+.form-submit {
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  opacity: .45;
+  cursor: not-allowed;
+  transition: opacity .25s var(--ease-out-quart), transform .2s var(--ease-out-quart), background .2s;
+}
+.form-submit:not(:disabled) {
+  opacity: 1;
+  cursor: pointer;
+}
+.form-submit.is-sending .submit-label { visibility: hidden; }
+.form-submit.is-sending::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 18px; height: 18px;
+  margin: -9px 0 0 -9px;
+  border: 2px solid rgba(255,255,255,.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: submitSpin .6s linear infinite;
+}
+@keyframes submitSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .form-submit.is-sending::after { animation: none; }
+}
+
 .contato-card {
   background: var(--carbon-2);
   border: 1px solid var(--line);

@@ -378,6 +378,62 @@ console.log('%cEngenharia de precisão — Cálculo estrutural, CFD, BIM, Andaim
   dialog.addEventListener('cancel', e => { e.preventDefault(); closeDetail(); });
 })();
 
+// Contato — form rápido com validação viva (Overdrive)
+(function () {
+  const form = document.getElementById('contatoForm');
+  if (!form) return;
+  const WA_NUMBER = '5594992745775';
+  const nome    = form.querySelector('#ctNome');
+  const servico = form.querySelector('#ctServico');
+  const msg     = form.querySelector('#ctMsg');
+  const submit  = form.querySelector('.form-submit');
+
+  function fieldWrap(el) { return el.closest('.form-field'); }
+
+  function validateField(el, errorMsg) {
+    const wrap = fieldWrap(el);
+    const value = el.value.trim();
+    const valid = el.checkValidity() && value.length > 0;
+    wrap.classList.toggle('is-valid', valid);
+    wrap.classList.toggle('is-invalid', !valid && el.dataset.touched === '1');
+    wrap.querySelector('.field-msg').textContent = (!valid && el.dataset.touched === '1') ? errorMsg : '';
+    return valid;
+  }
+
+  function updateSubmit() {
+    const nomeOk = validateField(nome, 'Digite ao menos 2 letras.');
+    const servicoOk = validateField(servico, 'Selecione um serviço.');
+    submit.disabled = !(nomeOk && servicoOk);
+  }
+
+  [nome, servico].forEach(el => {
+    el.addEventListener('input', () => { el.dataset.touched = '1'; updateSubmit(); });
+    el.addEventListener('blur', () => { el.dataset.touched = '1'; updateSubmit(); });
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    nome.dataset.touched = '1';
+    servico.dataset.touched = '1';
+    updateSubmit();
+    if (submit.disabled) return;
+
+    submit.classList.add('is-sending');
+    const linhas = [
+      'Olá! Gostaria de solicitar um orçamento da Vortek Engenharia.',
+      `Nome: ${nome.value.trim()}`,
+      `Serviço de interesse: ${servico.value}`,
+    ];
+    if (msg.value.trim()) linhas.push(`Mensagem: ${msg.value.trim()}`);
+    const text = encodeURIComponent(linhas.join('\n'));
+
+    setTimeout(() => {
+      window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
+      submit.classList.remove('is-sending');
+    }, prefersReduced ? 0 : 420);
+  });
+})();
+
 // Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a, .nav-mobile a');
