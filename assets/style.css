@@ -59,7 +59,7 @@ img { max-width: 100%; height: auto; display: block; }
 .accent-amber { color: var(--amber); }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .section-label {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 600;
   letter-spacing: .18em;
   color: var(--cyan-ink);
@@ -107,7 +107,7 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-links a {
   font-size: .82rem;
   font-weight: 500;
-  letter-spacing: .06em;
+  letter-spacing: .02em;
   color: var(--muted);
   transition: color .2s;
 }
@@ -182,7 +182,7 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 4px;
   font-size: .85rem;
   font-weight: 700;
-  letter-spacing: .06em;
+  letter-spacing: .02em;
   cursor: pointer;
   transition: .2s;
   border: none;
@@ -257,7 +257,7 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
 }
 .hero-badge {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 600;
   letter-spacing: .18em;
   color: var(--cyan-ink);
@@ -430,7 +430,7 @@ section h2 {
   margin-bottom: .4rem;
 }
 .stat-label {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 600;
   letter-spacing: .1em;
   color: var(--muted);
@@ -483,7 +483,7 @@ section h2 {
 }
 .servico-tag {
   display: inline-block;
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -503,9 +503,9 @@ section h2 {
   align-items: center;
   gap: .4rem;
   margin-top: 1rem;
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 700;
-  letter-spacing: .06em;
+  letter-spacing: .02em;
   text-transform: uppercase;
   color: var(--cyan-ink);
   opacity: 0;
@@ -669,7 +669,7 @@ section h2 {
 }
 .step-body { display: flex; flex-direction: column; gap: .5rem; }
 .step-label {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 800;
   letter-spacing: .14em;
   color: var(--aluminum);
@@ -781,7 +781,7 @@ section h2 {
   color: var(--cyan);
 }
 .setor-item span {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 700;
   letter-spacing: .08em;
   color: var(--muted);
@@ -848,14 +848,14 @@ section h2 {
 }
 .parceiro-card:hover .gear-ring { animation-duration: 6s; }
 .parceiro-nome {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 700;
   letter-spacing: .12em;
   color: var(--steel);
   text-transform: uppercase;
 }
 .parceiro-desc {
-  font-size: .72rem;
+  font-size: .8rem;
   color: var(--muted);
   text-align: center;
   line-height: 1.5;
@@ -929,7 +929,7 @@ section h2 {
 }
 .contato-icon svg { width: 100%; height: 100%; }
 .contato-label {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 700;
   letter-spacing: .14em;
   color: var(--steel);
@@ -946,7 +946,7 @@ section h2 {
 .form-field { margin-bottom: 1.3rem; position: relative; }
 .form-field label {
   display: block;
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -987,7 +987,7 @@ section h2 {
 }
 .field-msg {
   display: block;
-  font-size: .72rem;
+  font-size: .8rem;
   min-height: 1.1em;
   margin-top: .35rem;
   color: #C0392B;
@@ -1057,7 +1057,7 @@ section h2 {
   justify-content: center;
 }
 .contato-tags span {
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 600;
   letter-spacing: .08em;
   padding: .25rem .65rem;
@@ -1093,9 +1093,9 @@ footer {
   letter-spacing: .12em;
 }
 .footer-tagline {
-  font-size: .72rem;
+  font-size: .8rem;
   color: var(--steel);
-  letter-spacing: .08em;
+  letter-spacing: .02em;
   margin-top: .15rem;
 }
 .footer-nav {
@@ -1116,7 +1116,7 @@ footer {
   align-items: center;
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
-  font-size: .72rem;
+  font-size: .8rem;
   color: var(--steel);
   flex-wrap: wrap;
   gap: .5rem;
@@ -1124,7 +1124,7 @@ footer {
 .footer-slogan {
   font-weight: 700;
   letter-spacing: .1em;
-  font-size: .72rem;
+  font-size: .8rem;
 }
 .footer-slogan.accent-lime,
 .contato-card-sub.accent-lime { color: var(--lime-ink); }
@@ -1169,8 +1169,8 @@ footer {
   .metodo-grid { grid-template-columns: 1fr 1fr; }
   .setores-radar { width: 88vw; }
   .setores-legend { grid-template-columns: 1fr; }
-  .setor-item { width: 78px; padding: .55rem .4rem; }
-  .setor-item span { font-size: .69rem; letter-spacing: .02em; }
+  .setor-item { width: 90px; padding: .55rem .3rem; }
+  .setor-item span { font-size: .75rem; letter-spacing: 0; }
   .sobre-diferenciais { grid-template-columns: 1fr; }
   section { padding: 4rem 0; }
 }
