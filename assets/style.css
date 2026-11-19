@@ -798,19 +798,15 @@ section h2 {
   line-height: 1.7;
 }
 .parceiros-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 2rem;
-  flex-wrap: wrap;
-  align-items: center;
 }
 .parceiro-card {
-  flex: 1;
-  min-width: 220px;
-  max-width: 320px;
   background: var(--carbon);
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -846,6 +842,8 @@ section h2 {
   max-height: 56px;
   object-fit: contain;
 }
+/* logo muito horizontal: ocupa até a borda interna da engrenagem */
+.gear-logo--wide { width: 72%; }
 .parceiro-card:hover .gear-ring { animation-duration: 6s; }
 .parceiro-nome {
   font-size: .8rem;
@@ -853,6 +851,7 @@ section h2 {
   letter-spacing: .12em;
   color: var(--steel);
   text-transform: uppercase;
+  text-align: center;
 }
 .parceiro-desc {
   font-size: .8rem;
