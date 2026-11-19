@@ -12,6 +12,12 @@
   --cyan-2:   #00AEEB;
   --lime:     #6AAF00;
   --lime-2:   #A6E600;
+  /* Variantes de texto: cyan/lime puros ficam para preenchimentos, bordas e ícones */
+  --cyan-ink:     #00698F;  /* texto pequeno: >=4.5:1 em todos os fundos claros */
+  --lime-ink:     #447100;  /* texto pequeno: >=4.5:1 */
+  --lime-display: #579000;  /* texto grande (h1/h2/números): >=3:1 */
+  --cyan-deep:    #0077A3;  /* fundo de botão com texto branco: 5.0:1 */
+  --cyan-deep-2:  #006A91;  /* hover: 6.0:1 */
   --amber:    #D4890A;
   --grid:     rgba(13,21,32,.06);
   --line:     rgba(13,21,32,.12);
@@ -49,14 +55,14 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ===== UTILITIES ===== */
 .accent-cyan  { color: var(--cyan); }
-.accent-lime  { color: var(--lime); }
+.accent-lime  { color: var(--lime-display); }
 .accent-amber { color: var(--amber); }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .section-label {
   font-size: .72rem;
   font-weight: 600;
   letter-spacing: .18em;
-  color: var(--cyan);
+  color: var(--cyan-ink);
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
@@ -91,7 +97,7 @@ img { max-width: 100%; height: auto; display: block; }
   flex-shrink: 0;
 }
 .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
-.nav-logo em { color: var(--cyan); font-style: normal; }
+.nav-logo em { color: var(--cyan-ink); font-style: normal; }
 .nav-links {
   display: flex;
   list-style: none;
@@ -107,14 +113,14 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .nav-links a:hover { color: var(--white); }
 .nav-cta {
-  background: var(--cyan) !important;
+  background: var(--cyan-deep) !important;
   color: var(--black) !important;
   padding: .45rem 1.2rem;
   border-radius: 4px;
   font-weight: 700 !important;
   transition: background .2s !important;
 }
-.nav-cta:hover { background: var(--cyan-2) !important; }
+.nav-cta:hover { background: var(--cyan-deep-2) !important; }
 .nav-burger {
   display: none;
   flex-direction: column;
@@ -142,7 +148,7 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-mobile {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid transparent;
   gap: 1rem;
   overflow: hidden;
   opacity: 0;
@@ -163,6 +169,7 @@ img { max-width: 100%; height: auto; display: block; }
   opacity: 1;
   max-height: 320px;
   padding: 1rem 24px 1.5rem;
+  border-top-color: var(--line);
   pointer-events: auto;
 }
 
@@ -182,7 +189,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .btn-primary {
   background: var(--lime);
-  color: var(--black);
+  color: var(--white);
 }
 .btn-primary:hover { background: var(--lime-2); transform: translateY(-1px); }
 .btn-outline {
@@ -253,7 +260,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: .72rem;
   font-weight: 600;
   letter-spacing: .18em;
-  color: var(--cyan);
+  color: var(--cyan-ink);
   margin-bottom: 1.5rem;
 }
 #hero h1 {
@@ -339,13 +346,15 @@ section h2 {
   position: absolute;
   bottom: -3px;
   left: 0;
-  width: 0;
+  width: 100%;
   height: 1.5px;
   background: var(--cyan);
-  transition: width 0.28s var(--ease-out-expo);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s var(--ease-out-expo);
 }
 .nav-links a:hover::after,
-.nav-links a.active::after { width: 100%; }
+.nav-links a.active::after { transform: scaleX(1); }
 
 /* ===== DELIGHT — card scan line on hover ===== */
 .servico-card::after {
@@ -399,7 +408,7 @@ section h2 {
   gap: .5rem;
   color: var(--aluminum);
 }
-.check { color: var(--lime); font-weight: 700; }
+.check { color: var(--lime-display); font-weight: 700; }
 .sobre-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -474,7 +483,7 @@ section h2 {
 }
 .servico-tag {
   display: inline-block;
-  font-size: .68rem;
+  font-size: .72rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -484,8 +493,8 @@ section h2 {
   color: var(--steel);
   border: 1px solid var(--line);
 }
-.tag-cyan { background: rgba(0,174,235,.1); color: var(--cyan); border-color: rgba(0,174,235,.2); }
-.tag-lime { background: rgba(166,230,0,.1); color: var(--lime); border-color: rgba(166,230,0,.2); }
+.tag-cyan { background: rgba(0,174,235,.1); color: var(--cyan-ink); border-color: rgba(0,174,235,.2); }
+.tag-lime { background: rgba(166,230,0,.1); color: var(--lime-ink); border-color: rgba(166,230,0,.2); }
 
 .servico-card { cursor: pointer; }
 .servico-card:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
@@ -498,7 +507,7 @@ section h2 {
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--cyan-ink);
   opacity: 0;
   transform: translateX(-4px);
   transition: opacity .25s var(--ease-out-quart), transform .25s var(--ease-out-quart);
@@ -622,7 +631,7 @@ section h2 {
 .step-num {
   font-size: 1.6rem;
   font-weight: 900;
-  color: var(--lime);
+  color: var(--lime-display);
   line-height: 1;
   border: 2px solid var(--lime);
   width: 56px; height: 56px;
@@ -634,17 +643,17 @@ section h2 {
 }
 .step-num-final {
   background: var(--lime);
-  color: var(--black);
+  color: var(--white);
   position: relative;
 }
 .step-num-final::after {
   content: '✓';
   position: absolute;
   top: -8px; right: -8px;
-  font-size: .6rem;
+  font-size: .7rem;
   font-weight: 900;
   background: var(--lime-2);
-  color: var(--black);
+  color: var(--white);
   width: 16px; height: 16px;
   border-radius: 50%;
   display: flex;
@@ -772,7 +781,7 @@ section h2 {
   color: var(--cyan);
 }
 .setor-item span {
-  font-size: .68rem;
+  font-size: .72rem;
   font-weight: 700;
   letter-spacing: .08em;
   color: var(--muted);
@@ -920,7 +929,7 @@ section h2 {
 }
 .contato-icon svg { width: 100%; height: 100%; }
 .contato-label {
-  font-size: .65rem;
+  font-size: .72rem;
   font-weight: 700;
   letter-spacing: .14em;
   color: var(--steel);
@@ -931,13 +940,13 @@ section h2 {
   color: var(--aluminum);
   transition: color .2s;
 }
-.contato-item a:hover { color: var(--cyan); }
+.contato-item a:hover { color: var(--cyan-ink); }
 .contato-sep { color: var(--steel); }
 .contato-form { margin-top: 1.5rem; }
 .form-field { margin-bottom: 1.3rem; position: relative; }
 .form-field label {
   display: block;
-  font-size: .65rem;
+  font-size: .72rem;
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -1048,7 +1057,7 @@ section h2 {
   justify-content: center;
 }
 .contato-tags span {
-  font-size: .65rem;
+  font-size: .72rem;
   font-weight: 600;
   letter-spacing: .08em;
   padding: .25rem .65rem;
@@ -1084,7 +1093,7 @@ footer {
   letter-spacing: .12em;
 }
 .footer-tagline {
-  font-size: .65rem;
+  font-size: .72rem;
   color: var(--steel);
   letter-spacing: .08em;
   margin-top: .15rem;
@@ -1115,8 +1124,10 @@ footer {
 .footer-slogan {
   font-weight: 700;
   letter-spacing: .1em;
-  font-size: .7rem;
+  font-size: .72rem;
 }
+.footer-slogan.accent-lime,
+.contato-card-sub.accent-lime { color: var(--lime-ink); }
 
 /* ===== CFD CANVAS ===== */
 #cfd-canvas {
@@ -1159,7 +1170,7 @@ footer {
   .setores-radar { width: 88vw; }
   .setores-legend { grid-template-columns: 1fr; }
   .setor-item { width: 78px; padding: .55rem .4rem; }
-  .setor-item span { font-size: .58rem; }
+  .setor-item span { font-size: .69rem; letter-spacing: .02em; }
   .sobre-diferenciais { grid-template-columns: 1fr; }
   section { padding: 4rem 0; }
 }
