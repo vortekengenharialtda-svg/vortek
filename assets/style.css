@@ -44,7 +44,8 @@ h1, h2, h3,
   font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
 }
 a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
+#hero h1 .hero-badge { display: block; }
 
 /* ===== UTILITIES ===== */
 .accent-cyan  { color: var(--cyan); }

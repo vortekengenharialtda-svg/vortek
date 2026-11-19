@@ -1,0 +1,16 @@
+# Vortek Engenharia
+
+> Empresa de engenharia em Tucuruí-PA (Vortek Engenharia Ltda, CNPJ 68.921.200/0001-10) que atende a indústria em todo o Pará com cálculo estrutural de estruturas metálicas, projeto de andaime com ART, simulação CFD e DEM, análise por elementos finitos e laudos técnicos. Responsável técnico: Eng. Mecânico Hermeson Conceição Wanzeler, CREA 1522912355PA.
+
+## Serviços
+
+- [Cálculo estrutural](https://www.vortekengenharia.com.br/#servicos): estruturas metálicas conforme NBR 8800, NBR 6123 e AISC 360; entrega memorial de cálculo e plantas de reforço; prazo típico de 5 a 10 dias úteis.
+- [Projeto de andaime com ART](https://www.vortekengenharia.com.br/#servicos): andaimes tubulares e modulares conforme NR-18, NR-35 e EN 12811; entrega plantas de montagem, memorial e ART; prazo típico de 3 a 7 dias úteis.
+- [Modelagem 3D e simulação DEM](https://www.vortekengenharia.com.br/#servicos): escoamento de material granular em silos, chutes e transportadores.
+- [Simulação CFD](https://www.vortekengenharia.com.br/#servicos): ventilação industrial, perda de carga, pressão e conforto térmico em dutos e galpões.
+- [Análise por elementos finitos](https://www.vortekengenharia.com.br/#servicos): análise não linear, fadiga (S-N) e análise modal/vibração.
+- [Documentação técnica](https://www.vortekengenharia.com.br/#servicos): memoriais de cálculo, laudos técnicos e ART com revisão controlada no padrão ABNT.
+
+## Contato
+
+- [Solicitar orçamento](https://www.vortekengenharia.com.br/#contato): WhatsApp (94) 99274-5775, e-mail admvortek@gmail.com.

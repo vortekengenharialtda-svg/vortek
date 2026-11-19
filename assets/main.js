@@ -214,7 +214,8 @@ function initCFD2D() {
   animId = requestAnimationFrame(step);
 }
 
-if (!prefersReduced) initCFDShader();
+// Shader só depois do load: tira o long task do caminho do LCP
+if (!prefersReduced) window.addEventListener('load', () => (window.requestIdleCallback || setTimeout)(initCFDShader));
 
 // Método step stagger indices
 document.querySelectorAll('.metodo-step').forEach((el, i) => {
@@ -284,39 +285,12 @@ console.log('%cEngenharia de precisão — Cálculo estrutural, CFD, BIM, Andaim
   const cards   = document.querySelectorAll('.servico-card');
   const VT_NAME = 'servico-morph';
 
-  const specData = {
-    0: {
-      extra: 'Verificação de esforços, flechas e estabilidade em perfis metálicos, com relatório de rastreabilidade das hipóteses de cálculo adotadas.',
-      specs: ['Normas: NBR 8800, NBR 6123, AISC 360', 'Entregável: memorial de cálculo + plantas de reforço', 'Prazo típico: 5 a 10 dias úteis'],
-    },
-    1: {
-      extra: 'Projeto completo de andaime tubular ou modular, dimensionado para a carga real de trabalho e ancorado à estrutura de suporte.',
-      specs: ['Normas: NR-18, NR-35, EN 12811', 'Entregável: plantas de montagem, memorial e ART', 'Prazo típico: 3 a 7 dias úteis'],
-    },
-    2: {
-      extra: 'Modelo federado da instalação com simulação de escoamento de material granular em silos, chutes e transportadores.',
-      specs: ['Aplicação: silos, chutes, correias transportadoras', 'Entregável: modelo 3D + relatório de escoamento', 'Prazo conforme escopo do projeto'],
-    },
-    3: {
-      extra: 'Simulação numérica de escoamento de ar ou fluido para prever perda de carga, ventilação e conforto térmico antes da execução.',
-      specs: ['Aplicação: dutos, galpões, ventilação industrial', 'Entregável: mapas de velocidade e pressão + relatório', 'Prazo conforme escopo do projeto'],
-    },
-    4: {
-      extra: 'Estudos que vão além da análise linear padrão: comportamento não linear, fadiga acumulada e resposta dinâmica sob vibração.',
-      specs: ['Tipos: não linear geométrico/material, fadiga (S-N), modal', 'Entregável: relatório com rastreabilidade de hipóteses', 'Prazo conforme escopo do projeto'],
-    },
-    5: {
-      extra: 'Toda entrega técnica formatada para aprovação em órgão ou cliente, com revisão controlada e responsabilidade técnica assinada.',
-      specs: ['Entregável: memorial, laudo técnico e ART/RRT', 'Formato: revisão controlada, padrão ABNT', 'Prazo conforme escopo do projeto'],
-    },
-  };
-
   function supportsVT() {
     return typeof document.startViewTransition === 'function' && !prefersReduced;
   }
 
   function populate(card, idx) {
-    const data = specData[idx];
+    const extra = card.querySelector('.servico-extra');
     const accent = card.classList.contains('accent-border-cyan') ? 'cyan'
                  : card.classList.contains('accent-border-lime') ? 'lime' : '';
     panel.classList.remove('panel-cyan', 'panel-lime');
@@ -324,9 +298,9 @@ console.log('%cEngenharia de precisão — Cálculo estrutural, CFD, BIM, Andaim
 
     panel.querySelector('.dialog-icon').innerHTML = card.querySelector('.servico-icon').innerHTML;
     panel.querySelector('.dialog-title').textContent = card.querySelector('h3').textContent;
-    panel.querySelector('.dialog-desc').textContent = card.querySelector('p').textContent + ' ' + data.extra;
+    panel.querySelector('.dialog-desc').textContent = card.querySelector('p').textContent + ' ' + extra.querySelector('p').textContent;
     panel.querySelector('.dialog-tag').innerHTML = card.querySelector('.servico-tag').outerHTML;
-    panel.querySelector('.dialog-specs').innerHTML = data.specs.map(s => `<li>${s}</li>`).join('');
+    panel.querySelector('.dialog-specs').innerHTML = extra.querySelector('ul').innerHTML;
     dialog.dataset.idx = idx;
   }
 
@@ -397,13 +371,15 @@ console.log('%cEngenharia de precisão — Cálculo estrutural, CFD, BIM, Andaim
     wrap.classList.toggle('is-valid', valid);
     wrap.classList.toggle('is-invalid', !valid && el.dataset.touched === '1');
     wrap.querySelector('.field-msg').textContent = (!valid && el.dataset.touched === '1') ? errorMsg : '';
+    el.setAttribute('aria-invalid', String(!valid && el.dataset.touched === '1'));
     return valid;
   }
 
+  // Botão sempre habilitado: agentes e leitores de tela recebem o erro por campo em vez de um clique morto
   function updateSubmit() {
     const nomeOk = validateField(nome, 'Digite ao menos 2 letras.');
     const servicoOk = validateField(servico, 'Selecione um serviço.');
-    submit.disabled = !(nomeOk && servicoOk);
+    return nomeOk && servicoOk;
   }
 
   [nome, servico].forEach(el => {
@@ -415,8 +391,10 @@ console.log('%cEngenharia de precisão — Cálculo estrutural, CFD, BIM, Andaim
     e.preventDefault();
     nome.dataset.touched = '1';
     servico.dataset.touched = '1';
-    updateSubmit();
-    if (submit.disabled) return;
+    if (!updateSubmit()) {
+      form.querySelector('[aria-invalid="true"]').focus();
+      return;
+    }
 
     submit.classList.add('is-sending');
     const linhas = [
